@@ -1,7 +1,7 @@
 # Cvss - CVSS calculator for Go
 
 Ccvss is a Go library, which can be used to calculate CVSS scores from a string metric. 
-For instance, an ugly and hard to read string like **"AV:N/AC:L/Au:N/C:N/I:N/A:C"** results in a calculated score of **7.8**. Much easier to read and to perform caluclation on.
+For instance, an ugly and hard to read string like **"AV:N/AC:L/Au:N/C:N/I:N/A:C"** results in a calculated score of **7.8**. Much easier to read and to perform calculation on.
  
 For more information about the CVSS metric and definition as well as how the calculation is done in details, please see the [cvss v2 guide](https://www.first.org/cvss/v2/guide)
 
