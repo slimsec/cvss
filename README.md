@@ -37,6 +37,36 @@ func main() {
 }
 ```
 
+You may use this result (or any other base score) to calculate the temporal score: 
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/slimsec/cvss"
+)
+
+func main() {
+	score, err := cvss.CalculateBaseScore(os.Args[1], 2)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Base Score is: %0.1f\n", score)
+	temporalscore, err := cvss.CalculateTemporalScore(os.Args[2], score, 2)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Temporal Score is: %0.1f\n", temporalscore)
+}
+```
+
+
 ## Caveats ##
 
-This package is WIP. At the time, only CVSS version 2 is supported, and only the base metric can be calculated. This is mainly based on the fact, that this package was developed for this very purpose. Anyhow, temporal and environmental metrics are planned to be integrated as well as CVSS version 3. 
+This package is WIP. At the time, only CVSS version 2 is supported, and only the base and temporal metric can be calculated. Anyhow, environmental metric calculation is planned to be integrated as well as CVSS version 3. 
