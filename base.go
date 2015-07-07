@@ -62,7 +62,7 @@ func CalculateBaseScore(metric string, version int) (float64, error) {
 	if version != 2 {
 		return 0, errors.New("This CVSS version is not supported")
 	}
-	m, err := ParseBaseScore(metric)
+	m, err := ParseBaseMetric(metric)
 	if err != nil {
 		return 0, err
 	}
@@ -79,9 +79,9 @@ func CalculateBaseScore(metric string, version int) (float64, error) {
 	return baseScore, nil
 }
 
-// Parse splits the string into the appropriate metric groups.
+// ParseBaseMetric splits the string into the appropriate metric groups.
 // returns a metric struct and any error encountered.
-func ParseBaseScore(metric string) (BaseMetric, error) {
+func ParseBaseMetric(metric string) (BaseMetric, error) {
 	result := BaseMetric{}
 	r := regexp.MustCompile(`AV:([LAN])/AC:([HML])/Au:([MSN])/C:([NPC])/I:([NPC])/A:([NPC])`)
 	matches := r.FindAllStringSubmatch(metric, -1)

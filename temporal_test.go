@@ -6,7 +6,7 @@ func TestTemporalParse(t *testing.T) {
 	m := TemporalMetric{Exploitability: 0.85, RemediationLevel: 0.95, ReportConfidence: 0.9}
 	cvssString := `E:U/RL:W/RC:UC`
 
-	metric, err := ParseTemporalScore(cvssString)
+	metric, err := ParseTemporalMetric(cvssString)
 	if err != nil {
 		t.Errorf("Could not parse %s: %s", cvssString, err)
 	}

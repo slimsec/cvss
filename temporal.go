@@ -50,7 +50,7 @@ func CalculateTemporalScore(metric string, basescore float64, version int) (floa
 	if version != 2 {
 		return 0, errors.New("This CVSS version is not supported")
 	}
-	m, err := ParseTemporalScore(metric)
+	m, err := ParseTemporalMetric(metric)
 	if err != nil {
 		return 0, err
 	}
@@ -59,9 +59,9 @@ func CalculateTemporalScore(metric string, basescore float64, version int) (floa
 	return temporalScore, nil
 }
 
-// Parse splits the string into the appropriate metric groups.
+// ParseTemporalMetric splits the string into the appropriate metric groups.
 // returns a metric struct and any error encountered.
-func ParseTemporalScore(metric string) (TemporalMetric, error) {
+func ParseTemporalMetric(metric string) (TemporalMetric, error) {
 	result := TemporalMetric{}
 	r := regexp.MustCompile(`E:(POC|ND|[UFH])/RL:(OF|TF|ND|[WU])/RC:(UC|UR|ND|C)`)
 	matches := r.FindAllStringSubmatch(metric, -1)

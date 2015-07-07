@@ -6,7 +6,7 @@ func TestBaseParse(t *testing.T) {
 	m := BaseMetric{AccessVector: 1, AccessComplexity: 0.71, Authentication: 0.704, Confidentiality: 0.0, Integrity: 0.0, Avaliability: 0.66}
 	cvssString := `AV:N/AC:L/Au:N/C:N/I:N/A:C`
 
-	metric, err := ParseBaseScore(cvssString)
+	metric, err := ParseBaseMetric(cvssString)
 	if err != nil {
 		t.Errorf("Could not parse %s: %s", cvssString, err)
 	}
