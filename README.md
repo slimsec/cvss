@@ -34,7 +34,8 @@ func main() {
   }
 
   fmt.Printf("CVSS score is: %0.1f\n", score)
-}```
+}
+```
 
 ## Caveats ##
 
