@@ -6,7 +6,6 @@ package cvss
 
 import (
 	"errors"
-	"fmt"
 	"math"
 	"regexp"
 )
@@ -90,7 +89,6 @@ func ParseBaseScore(metric string) (BaseMetric, error) {
 		return result, errors.New("Could not parse metric string")
 
 	}
-	fmt.Println(matches)
 
 	// Parse AV value
 	switch matches[0][1] {
