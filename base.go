@@ -43,7 +43,7 @@ const (
 
 )
 
-// Metric is a simple struct that comprises all relevant vectors of a CVSS metric string
+// BaseMetric is a simple struct that comprises all relevant vectors of a CVSS base metric string
 type BaseMetric struct {
 	AccessVector     float64
 	AccessComplexity float64
