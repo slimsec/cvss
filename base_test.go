@@ -16,7 +16,11 @@ func TestParse(t *testing.T) {
 }
 func TestCalculateBaseScore(t *testing.T) {
 	cvssString := `AV:N/AC:L/Au:N/C:N/I:N/A:C`
-	score, err := CalculateBaseScore(cvssString, 2)
+	score, err := CalculateBaseScore(cvssString, 3)
+	if err == nil {
+		t.Error("Version 3 should not be supported yet")
+	}
+	score, err = CalculateBaseScore(cvssString, 2)
 	if err != nil {
 		t.Error(err)
 	}
